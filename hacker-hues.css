@@ -1,0 +1,225 @@
+:root {
+	--accent: #ff6600;
+	--background: #f6f6ef;
+	--light: white;
+	--dark: black;
+	--gray-1: whitesmoke;
+	--gray-2: lightgray;
+	--gray-3: gray;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a:visited {
+	color: var(--gray-3);
+}
+
+body {
+	background: var(--light);
+}
+
+[bgcolor="#ff6600"] {
+	background: none;
+}
+
+#pagespace {
+	height: 3em;
+}
+
+.pagetop {
+	display: flex;
+	gap: 0.2rem;
+	font-size: 12px;
+}
+
+.hnname {
+	margin-inline: 1em;
+}
+
+.hnname a {
+	color: var(--dark);
+}
+
+#hnmain {
+	padding: 2em;
+	background-color: var(--background);
+	border-top: 5px var(--accent) solid;
+}
+
+#hnmain,
+.comment-tree {
+	max-width: 70ch;
+}
+
+.comment {
+	margin-block-end: 2lh;
+}
+
+.commtext {
+	display: grid;
+	gap: 1lh;
+	font-size: larger;
+	line-height: 1.6;
+	text-wrap: pretty;
+}
+
+#hnmain:not(:has(.comment-tree)) center {
+	translate: -0.5ch 0.4ch;
+	min-width: 2ch;
+}
+
+.commtext *:empty {
+	display: none;
+}
+
+.submission *:not(.votearrow):empty {
+	display: none;
+}
+
+.fatitem .votelinks {
+	vertical-align: middle;
+	translate: -0.8ch;
+}
+
+.fatitem .titleline {
+	font-size: x-large;
+}
+
+.fatitem > :not(.votelinks) {
+	display: inline-block;
+	margin-inline-start: 0.5ch;
+}
+
+#hnmain:not(:has(.comment-tree)) .sitebit {
+	display: none;
+}
+
+.sitebit {
+	opacity: 0;
+	transition: opacity 200ms;
+}
+
+.title:hover .sitebit {
+	opacity: 1;
+}
+
+.subtext {
+	display: inline-block;
+	font-size: 0.7rem;
+	margin-block-start: 0.3em;
+}
+
+.toptext {
+	display: grid;
+	gap: 1lh;
+	color: initial;
+	background: var(--light);
+	padding: 2em;
+	margin-block-start: 1em;
+	border-radius: 0.5em;
+	line-height: 1.6;
+}
+
+pre code {
+	font-size: smaller;
+	display: inline-block;
+	padding: 0.5em;
+	background: var(--gray-1);
+	border-radius: 0.5em;
+	white-space: pre-line;
+}
+
+.commtext a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
+	text-decoration-color: hsl(from var(--accent) h s l / 0.3);
+
+	&:hover {
+		text-decoration-color: var(--accent);
+	}
+}
+
+.votearrow {
+	filter: brightness(0) saturate(100%) invert(44%) sepia(19%) saturate(5330%)
+		hue-rotate(359deg) brightness(102%) contrast(105%);
+}
+
+.comment-tree .votelinks center a {
+	display: grid;
+	width: 1em;
+	aspect-ratio: 1;
+	margin-block-end: 1em;
+	translate: -0.2ch;
+}
+
+form[action="comment"] textarea {
+	border-radius: 0.5em;
+	border-color: var(--gray-2);
+	padding: 1em;
+	outline-color: var(--accent);
+	resize: vertical;
+	max-height: 3lh;
+	width: 100%;
+}
+
+form[action="comment"] textarea:focus {
+	max-height: none;
+}
+
+form[action="comment"] input[type="submit"] {
+	appearance: none;
+	border: none;
+	padding-inline: 0.6em;
+	padding-block: 0.4em;
+	box-shadow: 0 0 0 1px var(--gray-2);
+	border-radius: 0.2em;
+
+	&:hover {
+		box-shadow: 0 0 0 1px var(--accent);
+	}
+}
+
+.reply a {
+	display: inline-block;
+	margin-block-start: 1em;
+	color: var(--gray-3);
+	font-size: larger;
+}
+
+td:has(.rank) {
+	display: grid;
+	justify-content: start;
+	margin-inline-end: 0.5ch;
+	margin-block-start: 0.2ex;
+}
+
+.rank {
+	font-size: smaller;
+	font-family: monospace;
+}
+
+.title:not(.fatitem .title) {
+	font-size: 1rem;
+}
+
+.spacer {
+	height: 20px;
+}
+
+/* LOGIN */
+body:has(form[action="login"]) {
+	padding: 2em;
+}
+
+/* JOBS */
+div:has(a[href*="ycombinator.com/jobs"]) {
+	margin-block-end: 3em;
+}
